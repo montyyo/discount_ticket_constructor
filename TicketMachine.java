@@ -111,5 +111,17 @@ public class TicketMachine
         return amountToRefund;
     }
     
+    /**
+     * metodo emptyMachine, simula el vaciado de la maquina y devuelve la cantidad
+     */
+    public int emptyMachine()
+    {
+        int balanceBeforeEmpty;
+        balanceBeforeEmpty = total;
+        total = 0;
+        return balanceBeforeEmpty;
+        
+    }
+    
     
 }
