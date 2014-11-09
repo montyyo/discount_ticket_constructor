@@ -17,7 +17,8 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
-
+    //new ticket
+    private int newTicket;
     /**
      * Create a machine that issues tickets of the given price.
      */
@@ -100,6 +101,37 @@ public class TicketMachine
 
         }
     }
+    
+    /**
+     * print a second type of ticket, the ticket have a descount of 10%
+     * the simulation need a senior card.
+     */
+    public void printDescountTicket()
+    {
+        int priceDescount = (price * 90)/ 100;
+        
+        if(balance >= price) {
+           
+            // Simulate the printing of a ticket.
+            System.out.println("##################");
+            System.out.println("# The BlueJ Line");
+            System.out.println("# Ticket with descount to seniors 10%  ");
+            System.out.println("# " + priceDescount + " cents.");
+            System.out.println("##################");
+            System.out.println();
+
+            // Update the total collected with the priceDescount.
+            total = total + priceDescount;
+            // Reduce the balance by the priceDescount.
+            balance = balance - priceDescount;
+        }
+        else {
+             int amountLeftToPay = (priceDescount - balance);
+            System.out.println("You must insert at least: " +
+               amountLeftToPay  + " more cents.");
+
+        }
+    }
 
     /**
      * Return the money in the balance.
@@ -112,6 +144,8 @@ public class TicketMachine
         balance = 0;
         return amountToRefund;
     }
+    
+    
     
     /**
      * metodo emptyMachine, simula el vaciado de la maquina y devuelve la cantidad
