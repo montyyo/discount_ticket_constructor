@@ -17,16 +17,17 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
-    //new ticket
-    private int newTicket;
+    // the option to buy a discount ticket
+    private boolean discountTicket;
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost)
+    public TicketMachine(int cost, boolean discount)
     {
         price = cost;
         balance = 0;
         total = 0;
+        discountTicket = discount;
     }
 
     /**
@@ -106,11 +107,11 @@ public class TicketMachine
      * print a second type of ticket, the ticket have a descount of 10%
      * the simulation need a senior card.
      */
-    public void printDescountTicket()
+    public void printTicketWithDiscount()
     {
         int priceDescount = (price * 90)/ 100;
         
-        if(balance >= price) {
+        if(balance >= price && discountTicket == true) {
            
             // Simulate the printing of a ticket.
             System.out.println("##################");
